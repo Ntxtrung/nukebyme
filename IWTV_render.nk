@@ -1,0 +1,1930 @@
+set cut_paste_input [stack 0]
+version 14.0 v1
+push $cut_paste_input
+Group {
+ name IWTV_renMOV
+ tile_color 0xff
+ gl_color 0xff0000ff
+ label "\[value shot_name.message]\n\[timecode]"
+ note_font_color 0xff3a00ff
+ selected true
+ xpos 116
+ ypos -41
+ addUserKnob {20 Input_text l "Input Text"}
+ addUserKnob {3 id +INVISIBLE}
+ id {{"\[if \{\[ regexp -inline \{\\d+\} \[value name]] == \"\"\} \{return 0\} else \{return \[regexp -inline \{\\d+\} \[value name]]+1\}]"}}
+ addUserKnob {6 type l Zero +STARTLINE}
+ addUserKnob {1 input_note l Note}
+ input_note "Heal and reveal - Louis wounds"
+ addUserKnob {1 input_ver l Version}
+ input_ver 0001
+ addUserKnob {41 cccid l CCC T OCIOCDLTransform1.cccid}
+ addUserKnob {41 select_cccid l "select cccid" T OCIOCDLTransform1.select_cccid}
+ addUserKnob {26 ""}
+ addUserKnob {20 renmov l Render n 1}
+ addUserKnob {41 which l "MOV - EXR" T Switch1.which}
+ addUserKnob {2 pathmov l Path:}
+ pathmov I:/IWTV_Grade/201/MOV/20230727_IWTV2201_STU_VFX001
+ addUserKnob {41 queue l Queue +INVISIBLE T Write2.render_order}
+ addUserKnob {41 Render_1 l "Render EXR" T Write1.Render}
+ addUserKnob {41 Render l "Render MOV" T Write2.Render}
+ addUserKnob {20 endGroup n -1}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x373b8eff
+  label LUTs
+  note_font_size 42
+  xpos -570
+  ypos 1831
+  bdwidth 115
+  bdheight 129
+  z_order 1
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos -663
+  ypos -197
+ }
+ Dot {
+  name Dot12
+  xpos -629
+  ypos -9
+ }
+set Nbb10dc00 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[]"
+  old_message {{91 93}
+    }
+  old_expression_markers {{0 1}
+    }
+  box {1379.140625 1994.859619 1446.140625 2095.859619}
+  transforms {{0 2}
+    }
+  cursor_position 2
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{1379.140625 2095.859619}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name Text1
+  xpos -307
+  ypos 82
+ }
+push $Nbb10dc00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  box {135 1333.5 3436 1434.5}
+  transforms {{0 2}
+    }
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{135 1434.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name Path_render
+  xpos -292
+  ypos 183
+ }
+push $Nbb10dc00
+ FrameRange {
+  first_frame 1001
+  last_frame {{"\[value input.last_frame]"}}
+  time ""
+  name FrameRange1
+  xpos -663
+  ypos 127
+ }
+ Dot {
+  name Dot140
+  xpos -629
+  ypos 477
+ }
+set Nb0772800 [stack 0]
+ Dot {
+  name Dot142
+  xpos -629
+  ypos 726
+ }
+set Nb0772c00 [stack 0]
+ Dot {
+  name Dot9
+  xpos -519
+  ypos 726
+ }
+set Nb0773000 [stack 0]
+push $Nb0772c00
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  name Reformat27
+  xpos -663
+  ypos 833
+ }
+ Expression {
+  expr3 1
+  name Expression1
+  xpos -663
+  ypos 887
+ }
+ Dot {
+  name Dot102
+  xpos -629
+  ypos 1038
+ }
+set Nb07c0000 [stack 0]
+ Dot {
+  name Dot6
+  xpos -532
+  ypos 1037
+ }
+ Dot {
+  name Dot103
+  xpos -415
+  ypos 1038
+ }
+set Nb07c0800 [stack 0]
+ Dot {
+  name Dot8
+  xpos -224
+  ypos 1038
+ }
+ FrameHold {
+  firstFrame {{"\[value input.last_frame]"}}
+  name LAST_FRAME_OF_CUT3
+  xpos -258
+  ypos 1115
+ }
+ Crop {
+  box {0 0 1920 972}
+  name Crop3
+  xpos -258
+  ypos 1174
+ }
+ Transform {
+  translate {1390.8 831.3}
+  scale 0.745
+  center {960 423.5}
+  name Transform9
+  xpos -257
+  ypos 1205
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Transform {
+  translate {1546.3 0}
+  center {1024 778}
+  name Transform11
+  xpos -257
+  ypos 1231
+ }
+ Dot {
+  name Dot5
+  xpos -223
+  ypos 1377
+ }
+push 0
+push $Nb07c0800
+ FrameHold {
+  firstFrame {{"(\[value input.last_frame]-1001)/2+1001"}}
+  name Mid_FRAME_OF_CUT1
+  xpos -449
+  ypos 1116
+ }
+ Crop {
+  box {0 0 1920 972}
+  name Crop2
+  xpos -449
+  ypos 1178
+ }
+ Transform {
+  translate {1391.1 831.3}
+  scale 0.745
+  center {960 423.5}
+  name Transform8
+  xpos -449
+  ypos 1204
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Dot {
+  name Dot104
+  xpos -415
+  ypos 1302
+ }
+push $Nb07c0000
+ FrameHold {
+  firstFrame 1001
+  name FIRST_FRAME_OF_CUT2
+  xpos -663
+  ypos 1109
+ }
+ Crop {
+  box {0 0 1920 972}
+  name Crop1
+  xpos -663
+  ypos 1172
+ }
+ Transform {
+  translate {-155.8 831.2}
+  scale 0.745
+  center {960 423.5}
+  name Transform21
+  xpos -663
+  ypos 1198
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Merge2 {
+  inputs 3+1
+  name Merge7
+  xpos -663
+  ypos 1299
+ }
+ Transform {
+  translate {-65.5 11}
+  scale 0.9
+  center {1725 399}
+  name Transform22
+  xpos -663
+  ypos 1439
+ }
+ Dot {
+  name Dot105
+  xpos -629
+  ypos 1646
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 1
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  name Constant3
+  xpos -828
+  ypos 1306
+ }
+ Transform {
+  translate {-150.2 588.3}
+  scale {0.6718 0.605}
+  center {1024 778}
+  name Transform6
+  xpos -828
+  ypos 1437
+ }
+set Nb0b78400 [stack 0]
+ Transform {
+  translate {1392 0}
+  center {1024 778}
+  name Transform7
+  xpos -828
+  ypos 1476
+ }
+set Nb0b78800 [stack 0]
+ Transform {
+  translate {1392 0}
+  center {1024 778}
+  name Transform10
+  xpos -828
+  ypos 1548
+ }
+push $Nb0b78800
+push $Nb0b78400
+push $Nb0772c00
+ Dot {
+  name Dot1
+  xpos -2139
+  ypos 957
+ }
+set Nb0b79000 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[value FrameHold2.firstFrame] frms - (w 10 frm hanldes head/tail)"
+  old_message {{45 57 48 48 32 102 114 109 115 32 45 32 40 119 32 49 48 32 102 114 109 32 104 97 110 108 100 101 115 32 104 101 97 100 47 116 97 105 108 41}
+    }
+  old_expression_markers {{0 3}
+    }
+  box {-230 2751.25 1600 2807.75}
+  xjustify right
+  transforms {{0 2}
+    }
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_duration
+  xpos -2129
+  ypos 1002
+ }
+ Transform {
+  translate {678 -320}
+  center {1057 2643}
+  name Transform24
+  xpos -2129
+  ypos 1051
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0b79000
+ Dot {
+  name Dot157
+  xpos -2413
+  ypos 956
+ }
+set Nb0b79c00 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.6
+  message "IWTV_\[value number_name.message]"
+  old_message {{73 87 84 86 95 109 101 116 97 100 97 116 97 32 109 117 115 116 32 98 101 32 99 97 108 108 101 100 32 111 110 32 97 32 118 97 108 105 100 32 111 112}
+    }
+  old_expression_markers {{5 41}
+    }
+  box {445.75 2341 3355 2445}
+  transforms {{0 2}
+    }
+  cursor_position 32
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.81
+  leading 1
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{465 2400}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name shot_name
+  xpos -2561
+  ypos 985
+ }
+ Transform {
+  translate {-77 409.5}
+  center {850 2385.5}
+  name Transform23
+  xpos -2561
+  ypos 1041
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0b79000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "v\[if \{\[value input_ver]  == \"\"\} \{return \[if \{\[lindex \[regexp -inline \{(\\w...)_(\\d+).(\\d+)\\.dpx\$\} \[lrange \[file split \[metadata input/filename]] 6 6]] 1]!=\"comp\"\} \{return \"0000\" \} \{return \[lindex \[regexp -inline \{(\\d+).(\\d+)\\.dpx\$\} \[lrange \[file split \[metadata input/filename]] 6 6]] 1]\}]\} \{return \[value input_ver]\}]"
+  old_message {{118 48 48 48 49}
+    }
+  old_expression_markers {{1 4}
+    }
+  box {582 2606.5 2134 2897.5}
+  transforms {{0 2}
+    }
+  cursor_position 317
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name Version
+  xpos -2348
+  ypos 1014
+ }
+ Transform {
+  translate {141 -316}
+  center {683 2766}
+  name Transform20
+  xpos -2348
+  ypos 1040
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0b79000
+ Dot {
+  name Dot4
+  xpos -1995
+  ypos 957
+ }
+set Nb0bbf000 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[value input_note]\n\n\n"
+  old_message {{72 101 97 108 32 97 110 100 32 114 101 118 101 97 108 32 45 32 76 111 117 105 115 32 119 111 117 110 100 115 10 10 10}
+    }
+  old_expression_markers {{0 29}
+    }
+  box {1727.699951 2773.5 3030.300049 2804.5}
+  transforms {{0 2}
+    }
+  cursor_position 20
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_note_2
+  xpos -1692
+  ypos 1031
+ }
+ Transform {
+  translate {-985.7999878 -1609.800049}
+  center {1686 2686}
+  name Transform19
+  xpos -1692
+  ypos 1057
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push 0
+push $Nb0bbf000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message Studio8fx
+  old_message {{83 116 117 100 105 111 56 102 120}
+    }
+  box {482.5 2772 1963.5 2803}
+  xjustify right
+  transforms {{0 2}
+    }
+  cursor_position 9
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_artist
+  xpos -1796
+  ypos 1027
+ }
+ Transform {
+  translate {-948.2000122 -593.7999878}
+  center {1686 2686}
+  name Transform12
+  xpos -1796
+  ypos 1053
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Text2 {
+  inputs 0
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[if \{\[value Switch1.which]==1\} \{return \"4448 x 3096\"\} \{return \"1920 x 1080\"\}] - (w 2.0 to 1 center extractionl) "
+  old_message {{49 57 50 48 32 120 32 49 48 56 48 32 45 32 40 119 32 50 46 48 32 116 111 32 49 32 99 101 110 116 101 114 32 101 120 116 114 97 99 116 105 111 110 108 41 32}
+    }
+  old_expression_markers {{0 10}
+    }
+  box {100 510 1581 541}
+  xjustify right
+  transforms {{0 2}
+    }
+  cursor_position 112
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_dimensions
+  xpos -1343
+  ypos 2754
+ }
+ Transform {
+  translate {476 1855}
+  center {706 488}
+  name Transform4
+  xpos -1343
+  ypos 1857
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0b79c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[date %Y]-\[date %m]-\[date %d]"
+  old_message {{50 48 50 51 45 48 55 45 50 55}
+    }
+  old_expression_markers {{0 3 5 6 8 9}
+    }
+  box {487.4000244 2772.100098 911.4000244 2803.100098}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name Date1
+  xpos -2447
+  ypos 1009
+ }
+ Transform {
+  translate {152 -130}
+  center {683 2766}
+  name Transform46
+  xpos -2447
+  ypos 1040
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Dot {
+  name Dot158
+  xpos -2413
+  ypos 1086
+ }
+push 0
+ Text2 {
+  inputs 0
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[if \{\[value Switch1.which]==1\} \{return \"EXR\"\} \{return \"Prores 422\"\}] "
+  old_message {{80 114 111 114 101 115 32 52 50 50 32}
+    }
+  old_expression_markers {{0 9}
+    }
+  box {1621.5 454.5 2100 485.5}
+  transforms {{0 2}
+    }
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_dimensions1
+  xpos -2111
+  ypos 2764
+ }
+ Transform {
+  translate {-898.5999756 1817.599976}
+  center {1557 438}
+  name Transform5
+  xpos -2111
+  ypos 2396
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0b79000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "1001-\[value input.last_frame] /"
+  old_message {{49 48 48 49 45 49 48 48 32 47}
+    }
+  old_expression_markers {{5 7}
+    }
+  box {-225.5 2751.75 1604.5 2808.25}
+  xjustify right
+  transforms {{0 2}
+    }
+  cursor_position 5
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name INPUT_framerange
+  xpos -2241
+  ypos 1032
+ }
+ Transform {
+  translate {-529 -319}
+  center {1057 2643}
+  name Transform47
+  xpos -2234
+  ypos 1059
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Merge2 {
+  inputs 10+1
+  name Merge6
+  xpos -2111
+  ypos 1340
+ }
+ Transform {
+  translate {77.40000153 -430.2000122}
+  center {617.5 1068}
+  name Transform1
+  xpos -2001
+  ypos 1340
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 1
+  name Constant6
+  xpos -1607
+  ypos 1078
+ }
+ Expression {
+  expr3 1
+  name Expression18
+  xpos -1607
+  ypos 1174
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge108
+  xpos -1607
+  ypos 1340
+ }
+push $Nb0772800
+ Blur {
+  size 150
+  filter quadratic
+  name Blur2
+  xpos -849
+  ypos 467
+ }
+ Grade {
+  black -0.0001
+  white 0.45
+  multiply 0.027
+  gamma 2.2
+  name Grade2
+  xpos -917
+  ypos 473
+ }
+ FrameHold {
+  firstFrame 1001
+  name FrameHold1
+  xpos -1017
+  ypos 467
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 0.002
+  format "4448 3096 0 0 4448 3096 1 "
+  name Constant2
+  xpos -1146
+  ypos 430
+ }
+ Merge2 {
+  inputs 2
+  mix 0.44
+  name Merge4
+  xpos -996
+  ypos 584
+ }
+set Nb0cee800 [stack 0]
+ Dot {
+  name Dot2
+  xpos -1256
+  ypos 588
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 0
+  expr3 0
+  name Expression2
+  xpos -1915
+  ypos 584
+ }
+ Dot {
+  name Dot166
+  xpos -1881
+  ypos 661
+ }
+set Nb0cef400 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "submission notes:"
+  old_message {{115 117 98 109 105 115 115 105 111 110 32 110 111 116 101 115 58}
+    }
+  box {24.5 1732 670.5 1763}
+  xjustify right
+  transforms {{0 2}
+    }
+  cursor_position 17
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name note
+  xpos -1432
+  ypos 756
+ }
+ Transform {
+  translate {0.7 -570}
+  center {516 2812}
+  name Transform15
+  xpos -1432
+  ypos 809
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message artist:
+  old_message {{97 114 116 105 115 116 58}
+    }
+  box {257.5 2720 681.5 2751}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  cursor_position 7
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name artist
+  xpos -1562
+  ypos 759
+ }
+ Transform {
+  translate {-2.8 -540}
+  center {516 2812}
+  name Transform3
+  xpos -1562
+  ypos 812
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message format:
+  old_message {{102 111 114 109 97 116 58}
+    }
+  box {239.5 2811.5 663.5 2842.5}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  cursor_position 7
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name format
+  xpos -1658
+  ypos 761
+ }
+ Transform {
+  translate {14.8 -539}
+  center {516 2812}
+  name Transform2
+  xpos -1658
+  ypos 801
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message dimensions:
+  old_message {{100 105 109 101 110 115 105 111 110 115 58}
+    }
+  box {239.5 2811.5 663.5 2842.5}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  cursor_position 11
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name dimensions
+  xpos -1741
+  ypos 759
+ }
+ Transform {
+  translate {13.8 -446.5}
+  center {516 2812}
+  name Transform17
+  xpos -1741
+  ypos 807
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message duration:
+  old_message {{100 117 114 97 116 105 111 110 58}
+    }
+  box {239.5 2811.5 663.5 2842.5}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  cursor_position 9
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name duration
+  xpos -1873
+  ypos 756
+ }
+ Transform {
+  translate {13 -353}
+  center {510 2718}
+  name Transform13
+  xpos -1873
+  ypos 810
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message version:
+  old_message {{118 101 114 115 105 111 110 58}
+    }
+  box {239.5 2811.5 663.5 2842.5}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 0 90}
+    }
+  cursor_position 8
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name version
+  xpos -2020
+  ypos 753
+ }
+ Transform {
+  translate {13 -260}
+  center {450 2790}
+  name Transform14
+  xpos -2030
+  ypos 817
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+push $Nb0cef400
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message date:
+  old_message {{100 97 116 101 58}
+    }
+  box {252.7999878 2773.699951 676.7999878 2804.699951}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 100 1 100 2 100 3 100 4 100 0 90 4 90}
+    }
+  cursor_position 5
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.65
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name Date
+  xpos -2189
+  ypos 747
+ }
+ Transform {
+  translate {0 -130}
+  center {1081 695}
+  name Transform55
+  xpos -2189
+  ypos 792
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Dot {
+  name Dot174
+  xpos -2155
+  ypos 836
+ }
+push 0
+push $Nb0cef400
+ Dot {
+  name Dot175
+  xpos -2420
+  ypos 689
+ }
+ Text2 {
+  font_size_toolbar 30
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message IWTV
+  old_message {{73 87 84 86}
+    }
+  box {50 1084 474 1115}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 30 1 30 2 30 3 30 0 90}
+    }
+  cursor_position 4
+  font {{ Arial : Regular : arial.ttf : 0 }}
+  font_size 30
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name Project
+  xpos -2454
+  ypos 758
+  disable true
+ }
+ Dot {
+  name Dot176
+  xpos -2420
+  ypos 857
+ }
+push $Nb0cef400
+ Merge2 {
+  inputs 18+1
+  mix 0.6
+  name Merge109
+  xpos -1924
+  ypos 881
+ }
+ Dot {
+  name Dot178
+  xpos -1881
+  ypos 948
+ }
+ Transform {
+  translate {78 -431}
+  center {401 967}
+  name Transform18
+  xpos -1500
+  ypos 944
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color 0.36
+  name Constant1
+  xpos -1218
+  ypos 857
+ }
+ Expression {
+  expr3 1
+  name Expression20
+  xpos -1218
+  ypos 929
+  disable true
+ }
+ Merge2 {
+  inputs 2
+  operation mask
+  name Merge1
+  xpos -1218
+  ypos 955
+ }
+ Dot {
+  name Dot100
+  xpos -1425
+  ypos 1196
+ }
+set Nb1ded800 [stack 0]
+push $Nb1ded800
+ Transform {
+  translate {7 -63}
+  center {1081 695}
+  name Transform16
+  xpos -1239
+  ypos 1193
+  disable true
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Grade {
+  white 0
+  name Grade1
+  xpos -1239
+  ypos 1241
+ }
+ Blur {
+  size 2
+  name Blur1
+  label "size: \[value size]"
+  xpos -1239
+  ypos 1277
+  disable true
+ }
+ Merge2 {
+  inputs 2
+  name Merge2
+  xpos -1459
+  ypos 1290
+ }
+ Merge2 {
+  inputs 2
+  name Merge5
+  xpos -1460
+  ypos 1340
+ }
+ Dot {
+  name Dot101
+  xpos -1425
+  ypos 1388
+ }
+push $Nb0cee800
+ Dot {
+  name Dot3
+  xpos -963
+  ypos 649
+ }
+ Merge2 {
+  inputs 2
+  bbox B
+  mix 0.57
+  name Merge3
+  xpos -981
+  ypos 1384
+ }
+ Merge2 {
+  inputs 2
+  name Merge9
+  xpos -981
+  ypos 1437
+ }
+ Merge2 {
+  inputs 2
+  name Merge10
+  xpos -980
+  ypos 1476
+ }
+ Merge2 {
+  inputs 2
+  name Merge11
+  xpos -980
+  ypos 1548
+ }
+ Merge2 {
+  inputs 2
+  name Merge8
+  xpos -980
+  ypos 1642
+ }
+ Dot {
+  name Dot7
+  xpos -946
+  ypos 1789
+ }
+ AppendClip {
+  inputs 2
+  firstFrame 1000
+  meta_from_first false
+  time ""
+  name AppendClip
+  xpos -553
+  ypos 1785
+ }
+set Nb1e5d000 [stack 0]
+ Dot {
+  name Dot10
+  xpos 341
+  ypos 1789
+ }
+push $Nb0773000
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  black_outside true
+  name Reformat3
+  xpos -29
+  ypos 2204
+ }
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  resize none
+  center false
+  name Reformat4
+  xpos -29
+  ypos 2287
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 0
+  expr3 0
+  name Expression3
+  xpos -29
+  ypos 2386
+ }
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[value number_name.message]"
+  old_message {{109 101 116 97 100 97 116 97 32 109 117 115 116 32 98 101 32 99 97 108 108 101 100 32 111 110 32 97 32 118 97 108 105 100 32 111 112}
+    }
+  old_expression_markers {{0 36}
+    }
+  box {0 0 1909 1077}
+  xjustify right
+  transforms {{0 2}
+    }
+  cursor_position 18
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.27
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name burnin_name
+  xpos -29
+  ypos 2542
+ }
+ Transform {
+  translate {-735 -1036.5}
+  center {1842 1036}
+  name Transform25
+  xpos -29
+  ypos 2616
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb1e5d000
+ OCIOColorSpace {
+  in_colorspace linear
+  out_colorspace AlexaV3LogC
+  name OCIOColorSpace1
+  xpos -552
+  ypos 1846
+ }
+ OCIOCDLTransform {
+  slope {0.9599 0.9534 0.9504}
+  offset {-0.04 -0.0137 -0.0084}
+  power {0.867 0.9173 0.9426}
+  working_space default
+  read_from_file true
+  file "\[value pathcc.message]/\[value namecc.message].ccc"
+  cccid 201_0310_1000_bg_01
+  name OCIOCDLTransform1
+  xpos -552
+  ypos 1900
+ }
+ Vectorfield {
+  vfield_file "//192.168.2.69/S8_Upload_02/IWTV/FILECCC/\[value namesq.message]/HBR1_IWTV2_OT_Base_AWGLogCv3_Rec709g24_ff_33x.cube"
+  version 65
+  file_type cube
+  name Vectorfield2
+  xpos -552
+  ypos 1936
+ }
+ Colorspace {
+  colorspace_in rec709
+  name Colorspace
+  xpos -552
+  ypos 1990
+ }
+ Dot {
+  name Dot13
+  xpos -517
+  ypos 2066
+ }
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  black_outside true
+  name Reformat1
+  xpos -553
+  ypos 2131
+ }
+ Dot {
+  name Dot127
+  xpos -519
+  ypos 2189
+ }
+set Nb1ed9400 [stack 0]
+ Dot {
+  name Dot128
+  xpos -299
+  ypos 2189
+ }
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  resize none
+  center false
+  name Reformat24
+  xpos -333
+  ypos 2348
+ }
+ Expression {
+  expr0 0
+  expr1 0
+  expr2 0
+  expr3 0
+  name Expression14
+  xpos -333
+  ypos 2402
+ }
+ Dot {
+  name Dot129
+  xpos -299
+  ypos 2453
+ }
+set Nb1efa800 [stack 0]
+ Dot {
+  name Dot130
+  xpos -79
+  ypos 2453
+ }
+set Nb1efac00 [stack 0]
+push 0
+push $Nb1efac00
+ Text2 {
+  font_size_toolbar 24
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message Studio8fx
+  old_message {{83 116 117 100 105 111 56 102 120}
+    }
+  box {0 0 1909 1077}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 24 1 24 2 24 3 24 4 24 5 24 6 24 7 24 8 24}
+    }
+  cursor_position 9
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 1.15
+  font_size 24
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name burnin_frame1
+  xpos 92
+  ypos 2554
+ }
+ Transform {
+  translate {-884.5999756 -19.39999962}
+  center {1842 1036}
+  name Transform26
+  xpos 92
+  ypos 2645
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+push $Nb1efac00
+ Dot {
+  name Dot135
+  xpos -117
+  ypos 2486
+ }
+set Nb1efb800 [stack 0]
+push $Nb1efb800
+ Text2 {
+  font_size_toolbar 24
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "1000 - \[frame] - \[value input.last_frame]"
+  old_message {{49 48 48 48 32 45 32 49 32 45 32 49 48 48 48}
+    }
+  old_expression_markers {{7 7 11 14}
+    }
+  box {0 0 1909 1077}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 24 1 24 2 24 3 24 4 24 5 24 6 24 7 24 7 24 7 24 7 24 6 24 8 24 9 24 10 24 11 24 12 24 13 24 14 24}
+    }
+  cursor_position 41
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 1.15
+  font_size 24
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name burnin_frame
+  xpos -219
+  ypos 2482
+ }
+ Transform {
+  translate {-69.40000153 -1039.599976}
+  center {1842 1036}
+  name Transform37
+  xpos -247
+  ypos 2580
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Merge2 {
+  inputs 2
+  name Merge87
+  xpos -151
+  ypos 2580
+ }
+ Merge2 {
+  inputs 4+1
+  name Merge12
+  xpos -113
+  ypos 2662
+ }
+ Dot {
+  name Dot138
+  xpos -79
+  ypos 2693
+ }
+push $Nb1efa800
+ Text2 {
+  font_size_toolbar 24
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.4
+  message "\[date %Y]-\[date %m]-\[date %d]"
+  old_message {{50 48 50 51 45 48 55 45 50 55}
+    }
+  old_expression_markers {{0 3 5 6 8 9}
+    }
+  box {0 0 1909 1077}
+  xjustify right
+  transforms {{0 2}
+    }
+  font_size_values {{0 24 1 24 2 24 3 24 4 24 5 24 6 24 7 24 8 24 9 24 0 90}
+    }
+  cursor_position 9
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 1.15
+  font_size 24
+  center {1081 695}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{376.5 1115}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1081 695 0 0 1 1 0 0 0 0}
+    }
+  name burnin_date
+  xpos -333
+  ypos 2531
+ }
+ Transform {
+  translate {-1684.599976 -1037.300049}
+  center {1799.400024 1061.099976}
+  name Transform27
+  xpos -333
+  ypos 2618
+  addUserKnob {20 User}
+  addUserKnob {22 center_trans l "Center Transform" -STARTLINE T "n = nuke.thisNode(); xVal = n\['center'].value(0); yVal = n\['center'].value(1); rVal = nuke.Root(); xfVal = rVal.width(); yfVal = rVal.height(); txVal = n\['translate'].value(0); tyVal = n\['translate'].value(1); cxVal = xfVal/2-xVal; cyVal = yfVal/2-yVal; n\['translate'].setValue(cxVal, 0); n\['translate'].setValue(cyVal, 1);"}
+ }
+ Merge2 {
+  inputs 2
+  name Merge88
+  xpos -333
+  ypos 2690
+ }
+ Dot {
+  name Dot139
+  xpos -299
+  ypos 2781
+ }
+push $Nb1ed9400
+ RotoPaint {
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097664}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier2 512 bezier
+     {{cc
+       {f 8192}
+       {px x447a0000
+        {{{0 -}}
+      {{xbe4cc000 -}}}
+        {{{xc18d1746 -}}
+      {{x42728bc2 0 1 x4481ffff 1}}}
+        {{{0 -}}
+      {{x3e4cc000 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{xc1370001 -}}
+      {{xc19effa0 0 1 x4481fffe 1}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{x44f1c16c -}}
+      {{xc19f7720 0 1 x4481fffe 1}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{x44f13e66 -}}
+      {{x4271ccdf 0 1 x4481ffff 1}}}
+        {{{0 -}}
+      {{0 -}}}}}     idem}
+     {tx x447a0000 x446fb333 x4484ed9a}
+     {a r 0 g 0 b 0 a 0 osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 ltn x447a0000 ltm x447a0000 tt x40800000}}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px x447a4000
+        {{{0 -}}
+      {{xbe4cc000 -}}}
+        {{{xc1900000 -}}
+      {{x448a6000 -}}}
+        {{{0 -}}
+      {{x3e4cc000 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{xc1370001 -}}
+      {{x447f0800 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{x44f1c16c x3d360000 1 0 1}}
+      {{x447f0444 xbf6ef000 1 0 1}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{0 -}}
+      {{0 -}}}
+        {{{x44f14666 -}}
+      {{x448a8666 -}}}
+        {{{0 -}}
+      {{0 -}}}}}     idem}
+     {tx x447a0000 x446fb333 x4484ed9a}
+     {a r 0 g 0 b 0 a 0 osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 ltn x447a0000 ltm x447a0000 tt x40800000}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {1024 778}
+  color 0
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  lifetime_start 1000
+  lifetime_end 1000
+  motionblur_shutter_offset_type centred
+  source_black_outside true
+  name RotoPaint1
+  xpos -553
+  ypos 2647
+ }
+ Merge2 {
+  inputs 2
+  mix 0.3
+  name Merge105
+  xpos -553
+  ypos 2777
+ }
+ Reformat {
+  format "1920 1080 0 0 1920 1080 1 HD_1080"
+  name Reformat2
+  xpos -553
+  ypos 3277
+ }
+ Switch {
+  inputs 2
+  name Switch1
+  xpos 324
+  ypos 3311
+ }
+ AddTimeCode {
+  name AddTimeCode1
+  xpos 324
+  ypos 3377
+ }
+set Nb1fc9400 [stack 0]
+ Write {
+  file "\[value pathmov]/\[value shot_name.message].mov"
+  colorspace rec709
+  file_type mov
+  mov64_format "mov (QuickTime / MOV)"
+  mov64_codec appr
+  mov64_fps 23.976
+  mov_prores_codec_profile "ProRes 4:2:2 Proxy 10-bit"
+  mov_h264_codec_profile "High 4:2:0 8-bit"
+  mov64_pixel_format {{0}}
+  mov64_quality High
+  mov64_fast_start true
+  mov64_write_timecode true
+  mov64_gop_size 12
+  mov64_b_frames 0
+  mov64_bitrate 20000
+  mov64_bitrate_tolerance 4000000
+  mov64_quality_min 1
+  mov64_quality_max 3
+  create_directories true
+  render_order {{"\[value id]"}}
+  first {{"\[value AppendClip.firstFrame]"}}
+  last {{"\[value AppendClip.lastFrame]"}}
+  use_limit true
+  checkHashOnRead false
+  version 18
+  name Write2
+  xpos 324
+  ypos 3498
+  disable {{"\[value Switch1.which]==1"}}
+ }
+set Nb1fc9800 [stack 0]
+ Output {
+  name Output1
+  xpos 324
+  ypos 3882
+ }
+push $Nbb10dc00
+ Dot {
+  name Dot11
+  xpos 39
+  ypos 1618
+ }
+set Nb2030000 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[regexp -inline \{\\d+_\\d+_\\d+\} \[file tail \[metadata input/filename]]]_bg_01"
+  old_message {{50 48 49 95 48 48 49 48 95 48 54 48 48 95 98 103 95 48 49}
+    }
+  old_expression_markers {{0 12}
+    }
+  box {1783.999878 2027.000488 2785.999878 2128.000488}
+  transforms {{0 2}
+    }
+  cursor_position 74
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{1783.999878 2128.000488}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name namecc
+  xpos 130
+  ypos 1692
+ }
+push $Nb2030000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "//192.168.2.69/S8_Upload_02/IWTV/FILECCC/\[value namesq.message]"
+  old_message {{47 47 49 57 50 46 49 54 56 46 50 46 54 57 47 83 56 95 85 112 108 111 97 100 95 48 50 47 73 87 84 86 47 70 73 76 69 67 67 67 47 50 48 49}
+    }
+  old_expression_markers {{41 43}
+    }
+  box {303 1039.75 2765 1170.25}
+  transforms {{0 2}
+    }
+  cursor_position 63
+  global_font_scale 0.69
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{734 1290.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name pathcc
+  xpos -120
+  ypos 1662
+ }
+push $Nb2030000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[regexp -inline \{\\d+\} \[file tail \[metadata input/filename]]]"
+  old_message {{50 48 49}
+    }
+  old_expression_markers {{0 2}
+    }
+  box {1783.999878 2027.000488 1943.999878 2128.000488}
+  transforms {{0 2}
+    }
+  cursor_position 60
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{1783.999878 2128.000488}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name namesq
+  xpos 5
+  ypos 1682
+ }
+push $Nb0b79c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  opacity 0.6
+  message "\[value input.format] - 1001"
+  old_message {{91 118 97 108 117 101 32 105 110 112 117 116 46 102 111 114 109 97 116 93 32 45 32 49 48 48 49}
+    }
+  box {806.375 2200 2457.625 2280}
+  transforms {{0 2}
+    }
+  cursor_position 19
+  font {{ Helvetica Neue LT Std : 75 Bold : HelveticaNeueLTStd-Bd.otf : 0 }}
+  global_font_scale 0.81
+  leading 1
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{465 2400}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name Duration
+  xpos -2510
+  ypos 878
+ }
+push $Nb0b79000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[if \{\[value type] == true\} \{return \"zero\"\} else \{\[return \"comp\"]\}]"
+  old_message {{99 111 109 112}
+    }
+  old_expression_markers {{0 3}
+    }
+  box {1052.25 1414.75 2635.75 1793.25}
+  transforms {{0 2}
+    }
+  cursor_position 5
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{1650.5 1640.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name type_check
+  xpos -2173
+  ypos 890
+ }
+push $Nb0b79000
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[regexp -inline \{\\d+.\\d+.\\d+\} \[file tail \[metadata input/filename]]]_\[value type_check.message]_\[value Version.message]"
+  old_message {{50 48 49 95 48 51 49 48 95 48 56 48 48 95 99 111 109 112 95 118 48 48 48 49}
+    }
+  old_expression_markers {{0 12 14 17 19 23}
+    }
+  box {170 1414.5 1477 1515.5}
+  transforms {{0 2}
+    }
+  cursor_position 28
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{170 1515.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name number_name
+  xpos -2399
+  ypos 889
+ }
+push $Nb1fc9800
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[value Write2.disable]"
+  old_message {{102 97 108 115 101}
+    }
+  old_expression_markers {{0 4}
+    }
+  box {2464.000244 448.9998779 2672.000244 549.9998779}
+  transforms {{0 2}
+    }
+  cursor_position 22
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{2464.000244 549.9998779}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name Text2
+  xpos 547
+  ypos 3311
+ }
+push $Nb1fc9400
+ Dot {
+  name Dot14
+  xpos 551
+  ypos 3380
+ }
+ Write {
+  file "\[value pathmov]/\[value shot_name.message]/\[value shot_name.message]_####.exr"
+  file_type exr
+  first_part rgba
+  create_directories true
+  render_order {{"\[value id]+1"}}
+  first {{"\[value AppendClip.firstFrame]"}}
+  last {{"\[value AppendClip.lastFrame]"}}
+  use_limit true
+  checkHashOnRead false
+  version 2
+  name Write1
+  xpos 517
+  ypos 3516
+  disable {{"\[value Switch1.which]==0"}}
+ }
+push $Nb1fc9800
+push 0
+ Viewer {
+  inputs 2
+  frame_range 63-63
+  input_number 1
+  name Viewer1
+  xpos -2289
+  ypos 889
+ }
+push $Nbb10dc00
+ FrameHold {
+  firstFrame {{"\[value input.last_frame]-1001+1"}}
+  name FrameHold2
+  xpos -2104
+  ypos -3
+ }
+end_group

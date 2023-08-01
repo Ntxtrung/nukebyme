@@ -1,0 +1,266 @@
+set cut_paste_input [stack 0]
+version 14.0 v1
+push $cut_paste_input
+Group {
+ name Ren_JPG_new
+ tile_color 0x680084ff
+ label "\[value Name_shot.message]"
+ selected true
+ xpos -352
+ ypos 1039
+ addUserKnob {20 User}
+ addUserKnob {3 or +INVISIBLE}
+ or {{"\[ regexp -inline \{\\d+\} \[value name]]"}}
+ addUserKnob {2 pathFile l "Auto | Path:"}
+ addUserKnob {41 render_order l Queue T Write1.render_order}
+ addUserKnob {41 Render T Write1.Render}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos -509
+  ypos -7
+ }
+set N3ed65c00 [stack 0]
+ FrameHold {
+  firstFrame {{"\[value input.last_frame]"}}
+  name FrameHold2
+  xpos -698
+  ypos 97
+ }
+push $N3ed65c00
+ FrameHold {
+  firstFrame {{"\[value input.first_frame]"}}
+  name FrameHold1
+  xpos -811
+  ypos 79
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[value pathFile]"
+  old_expression_markers {{0 -1}
+    }
+  box {0 1604.5 1 1605.5}
+  transforms {{0 2}
+    }
+  cursor_position 15
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{0 1605.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name path_pathFile
+  xpos -70
+  ypos 181
+ }
+push $N3ed65c00
+ Dot {
+  name Dot1
+  xpos -475
+  ypos 129
+ }
+set N3ed65400 [stack 0]
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[file dirname \[file dirname \[file dirname \[metadata input/filename]]]]/JPG/"
+  old_message {{47 47 49 57 50 46 49 54 56 46 50 46 55 57 47 83 56 95 68 111 119 110 76 111 97 100 49 47 66 76 85 69 66 79 76 84 47 74 80 71 47}
+    }
+  old_expression_markers {{0 35}
+    }
+  box {107 584.5 2329 685.5}
+  transforms {{0 2}
+    }
+  cursor_position 75
+  center {1024 778}
+  cursor_initialised true
+  initial_cursor_position {{107 685.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name path
+  xpos -379
+  ypos 183
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[if \{\[lindex \[split \[metadata input/filename] /.] end] == \"mov\"\} \{return 1\} else \{return 2\}]"
+  old_message {{49}
+    }
+  old_expression_markers {{0 0}
+    }
+  box {699 571 736 637}
+  transforms {{0 2}
+    }
+  cursor_position 92
+  font {{ Helvetica : Regular : Helvetica.ttf : 0 }}
+  global_font_scale 0.65
+  center {2048 1080}
+  cursor_initialised true
+  initial_cursor_position {{699 637}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 2048 1080 0 0 1 1 0 0 0 0}
+    }
+  name ext
+  xpos -202
+  ypos 19
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[lindex \[split \[metadata input/filename] /.] end-\[value ext.message]]"
+  old_message {{76 65 87 95 49 48 49 95 48 48 57 95 48 48 49 48 95 66 71 48 49 95 118 48 48 48}
+    }
+  old_expression_markers {{0 25}
+    }
+  box {485 619 1532 670}
+  transforms {{0 2}
+    }
+  cursor_position 69
+  font {{ Helvetica : Regular : Helvetica.ttf : 0 }}
+  global_font_scale 0.65
+  center {2048 1080}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{485 685}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 2048 1080 0 0 1 1 0 0 0 0}
+    }
+  name Name_shot
+  xpos -343
+  ypos 41
+ }
+push $N3ed65400
+ Dot {
+  name Dot2
+  xpos -475
+  ypos 264
+ }
+ Write {
+  file "\[value pathFinal.message]/\[value Name_shot.message].####.jpg"
+  file_type jpeg
+  _jpeg_quality 1
+  create_directories true
+  render_order {{"\[value or]"}}
+  first {{"\[value FrameHold1.firstFrame]"}}
+  last {{"\[value FrameHold2.firstFrame]"}}
+  use_limit true
+  checkHashOnRead false
+  version 38
+  name Write1
+  label "\[value file]"
+  xpos -509
+  ypos 317
+ }
+set N2ab85000 [stack 0]
+ Output {
+  name Output1
+  xpos -509
+  ypos 400
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[if \{\[value ext.message] == 1\} \{return \[value path_mov.message]\} else \{return \[value path.message]\}]"
+  old_message {{47 47 49 57 50 46 49 54 56 46 50 46 55 57 47 83 56 95 68 111 119 110 76 111 97 100 49 47 66 76 85 69 66 79 76 84 47 50 51 48 55 48 51 95 76 65 87 95 82 111 116 111 95 80 114 101 112 95 79 117 116 115 111 117 114 99 101 95 80 107 103 95 49 47 109 111 118 47 74 80 71 47}
+    }
+  old_expression_markers {{0 81}
+    }
+  box {-152.5 459.5 2472.5 660.5}
+  transforms {{0 2}
+    }
+  cursor_position 29
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{20 850.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name path1_new
+  xpos -268
+  ypos 145
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[file dirname \[metadata input/filename]]/JPG/"
+  old_message {{47 47 49 57 50 46 49 54 56 46 50 46 55 57 47 83 56 95 68 111 119 110 76 111 97 100 49 47 66 76 85 69 66 79 76 84 47 50 51 48 55 48 51 95 76 65 87 95 82 111 116 111 95 80 114 101 112 95 79 117 116 115 111 117 114 99 101 95 80 107 103 95 49 47 109 111 118 47 74 80 71 47}
+    }
+  old_expression_markers {{0 76}
+    }
+  box {70.25 347.5 1897.75 632.5}
+  transforms {{0 2}
+    }
+  font {{ Helvetica : Regular : Helvetica.ttf : 0 }}
+  global_font_scale 0.65
+  center {2048 1080}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{-13.5 591}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 2048 1080 0 0 1 1 0 0 0 0}
+    }
+  name path_mov
+  xpos -39
+  ypos -7
+ }
+push $N3ed65c00
+ Text2 {
+  font_size_toolbar 100
+  font_width_toolbar 100
+  font_height_toolbar 100
+  message "\[if \{\[value pathFile] == \"\"\} \{return \[value path1_new.message]\} else \{return \[value path_pathFile.message]\}]/\[value Name_shot.message]"
+  old_message {{73 58 47 80 65 73 78 84 47 65 66 67 47 50 48 49 95 48 51 49 48 95 48 56 48 48 95 98 103 95 48 49}
+    }
+  old_expression_markers {{0 11 13 31}
+    }
+  box {35 -140 1845 596.5}
+  transforms {{0 2}
+    }
+  cursor_position 109
+  center {1024 778}
+  cursor_initialised true
+  autofit_bbox false
+  initial_cursor_position {{-1884.5 596.5}
+    }
+  group_animations {{0} imported: 0 selected: items: "root transform/"}
+  animation_layers {{1 11 1024 778 0 0 1 1 0 0 0 0}
+    }
+  name pathFinal
+  xpos -268
+  ypos 249
+ }
+push $N2ab85000
+push 0
+ Viewer {
+  inputs 2
+  frame 10
+  frame_range 1-29
+  input_number 1
+  monitorOutOutputTransform rec709
+  name Viewer1
+  xpos -234
+  ypos 48
+ }
+end_group
